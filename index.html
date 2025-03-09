@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MQK</title>
+</head>
+<body>
+    <iframe title="wireframe-0" srcdoc="
+            <html class=&quot;&quot;>
+              
+<head>
+    <link href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&amp;display=swap&quot; rel=&quot;stylesheet&quot;>
+    
+  <script src=&quot;https://cdn.jsdelivr.net/npm/apexcharts&quot;></script>
+  <script src=&quot;https://cdn.tailwindcss.com&quot;></script>
+  <script>
+      window.FontAwesomeConfig = {
+          autoReplaceSvg: 'nest', // Options: 'nest', 'remove', 'replace'
+      };
+  </script>
+  <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;></script>
+
+    
+<style>
+  * {
+    font-family: &quot;Inter&quot;, sans-serif;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
+    
+<style>
+  .highlighted-section {
+    outline: 2px solid #3F20FB;
+    background-color: rgba(63, 32, 251, 0.1);
+  }
+
+  .edit-button {
+    position: absolute;
+    z-index: 1000;
+  }
+</style>
+
+    
+<style>
+   :root {
+          /* Base colors */
+          --color-base: #ffffff;
+          --color-base-50: #f9fafb;
+          --color-base-100: #f3f4f6;
+          --color-base-200: #e5e7eb;
+          --color-base-300: #d1d5db;
+          --color-base-400: #9ca3af;
+          --color-base-500: #6b7280;
+          --color-base-600: #4b5563;  
+          --color-base-700: #374151;
+          --color-base-800: #1f2937;  
+          --color-base-900: #111827;
+          --color-base-content: #1f2937;
+
+          /* Primary colors */
+          --color-primary: #3b82f6;
+          --color-primary-50: #eff6ff;
+          --color-primary-100: #dbeafe;
+          --color-primary-200: #bfdbfe;
+          --color-primary-300: #93c5fd;
+          --color-primary-400: #60a5fa;
+          --color-primary-500: #3b82f6;
+          --color-primary-600: #2563eb;
+          --color-primary-700: #1d4ed8;
+          --color-primary-800: #1e40af;
+          --color-primary-900: #1e3a8a;
+          --color-primary-focus: #2563eb;
+          --color-primary-content: #ffffff;
+
+          /* Secondary colors */
+          --color-secondary: #8b5cf6;
+          --color-secondary-50: #f5f3ff;
+          --color-secondary-100: #ede9fe;
+          --color-secondary-200: #ddd6fe;
+          --color-secondary-300: #c4b5fd;
+          --color-secondary-400: #a78bfa;
+          --color-secondary-500: #8b5cf6;
+          --color-secondary-600: #7c3aed;
+          --color-secondary-700: #6d28d9;
+          --color-secondary-800: #5b21b6;
+          --color-secondary-900: #4c1d95;
+          --color-secondary-focus: #7c3aed;
+          --color-secondary-content: #ffffff;
+
+          /* Accent colors */
+          --color-accent: #f472b6;
+          --color-accent-50: #fdf2f8;
+          --color-accent-100: #fce7f3;
+          --color-accent-200: #fbcfe8;
+          --color-accent-300: #f9a8d4;
+          --color-accent-400: #f472b6;
+          --color-accent-500: #ec4899;
+          --color-accent-600: #db2777;
+          --color-accent-700: #be185d;
+          --color-accent-800: #9d174d;
+          --color-accent-900: #831843;
+          --color-accent-focus: #db2777;
+          --color-accent-content: #ffffff;
+
+          /* Neutral colors */
+          --color-neutral: #6b7280;
+          --color-neutral-50: #f9fafb;
+          --color-neutral-100: #f3f4f6;
+          --color-neutral-200: #e5e7eb;
+          --color-neutral-300: #d1d5db;
+          --color-neutral-400: #9ca3af;
+          --color-neutral-500: #6b7280;
+          --color-neutral-600: #4b5563;
+          --color-neutral-700: #374151;
+          --color-neutral-800: #1f2937;
+          --color-neutral-900: #111827;
+          --color-neutral-focus: #4b5563;
+          --color-neutral-content: #ffffff;
+
+          /* Info colors */
+          --color-info: #3b82f6;
+          --color-info-50: #eff6ff;
+          --color-info-100: #dbeafe;
+          --color-info-200: #bfdbfe;
+          --color-info-300: #93c5fd;
+          --color-info-400: #60a5fa;
+          --color-info-500: #3b82f6;
+          --color-info-600: #2563eb;
+          --color-info-700: #1d4ed8;
+          --color-info-800: #1e40af;
+          --color-info-900: #1e3a8a;
+          --color-info-focus: #2563eb;
+          --color-info-content: #ffffff;
+
+          /* Success colors */
+          --color-success: #10b981;
+          --color-success-50: #ecfdf5;
+          --color-success-100: #d1fae5;
+          --color-success-200: #a7f3d0;
+          --color-success-300: #6ee7b7;
+          --color-success-400: #34d399;
+          --color-success-500: #10b981;
+          --color-success-600: #059669;
+          --color-success-700: #047857;
+          --color-success-800: #065f46;
+          --color-success-900: #064e3b;
+          --color-success-focus: #059669;
+          --color-success-content: #ffffff;
+
+          /* Warning colors */
+          --color-warning: #f59e0b;
+          --color-warning-50: #fffbeb;
+          --color-warning-100: #fef3c7;
+          --color-warning-200: #fde68a;
+          --color-warning-300: #fcd34d;
+          --color-warning-400: #fbbf24;
+          --color-warning-500: #f59e0b;
+          --color-warning-600: #d97706;
+          --color-warning-700: #b45309;
+          --color-warning-800: #92400e;
+          --color-warning-900: #78350f;
+          --color-warning-focus: #d97706;
+          --color-warning-content: #ffffff;
+
+          /* Error colors */
+          --color-error: #ef4444;
+          --color-error-50: #fef2f2;
+          --color-error-100: #fee2e2;
+          --color-error-200: #fecaca;
+          --color-error-300: #fca5a5;
+          --color-error-400: #f87171;
+          --color-error-500: #ef4444;
+          --color-error-600: #dc2626;
+          --color-error-700: #b91c1c;
+          --color-error-800: #991b1b;
+          --color-error-900: #7f1d1d;
+          --color-error-focus: #dc2626;
+          --color-error-content: #ffffff;
+        }
+</style>
+
+    
+<style>
+/* Dark theme */
+        .dark {
+          /* Base colors */
+          --color-base: #1f2937;
+          --color-base-50: #111827;
+          --color-base-100: #1f2937;
+          --color-base-200: #374151;
+          --color-base-300: #4b5563;
+          --color-base-400: #6b7280;
+          --color-base-500: #9ca3af;
+          --color-base-600: #d1d5db;
+          --color-base-700: #e5e7eb;
+          --color-base-800: #f3f4f6;
+          --color-base-900: #f9fafb;
+          --color-base-content: #f9fafb;
+
+          /* Primary colors */
+          --color-primary: #60a5fa;
+          --color-primary-50: #1e3a8a;
+          --color-primary-100: #1e40af;
+          --color-primary-200: #1d4ed8;
+          --color-primary-300: #2563eb;
+          --color-primary-400: #3b82f6;
+          --color-primary-500: #60a5fa;
+          --color-primary-600: #93c5fd;
+          --color-primary-700: #bfdbfe;
+          --color-primary-800: #dbeafe;
+          --color-primary-900: #eff6ff;
+          --color-primary-focus: #3b82f6;
+          --color-primary-content: #1f2937;
+
+          /* Secondary colors */
+          --color-secondary: #a78bfa;
+          --color-secondary-50: #4c1d95;
+          --color-secondary-100: #5b21b6;
+          --color-secondary-200: #6d28d9;
+          --color-secondary-300: #7c3aed;
+          --color-secondary-400: #8b5cf6;
+          --color-secondary-500: #a78bfa;
+          --color-secondary-600: #c4b5fd;
+          --color-secondary-700: #ddd6fe;
+          --color-secondary-800: #ede9fe;
+          --color-secondary-900: #f5f3ff;
+          --color-secondary-focus: #8b5cf6;
+          --color-secondary-content: #1f2937;
+
+          /* Accent colors */
+          --color-accent: #f472b6;
+          --color-accent-50: #831843;
+          --color-accent-100: #9d174d;
+          --color-accent-200: #be185d;
+          --color-accent-300: #db2777;
+          --color-accent-400: #ec4899;
+          --color-accent-500: #f472b6;
+          --color-accent-600: #f9a8d4;
+          --color-accent-700: #fbcfe8;
+          --color-accent-800: #fce7f3;
+          --color-accent-900: #fdf2f8;
+          --color-accent-focus: #ec4899;
+          --color-accent-content: #1f2937;
+
+          /* Neutral colors remain the same as light theme */
+
+          /* Info colors */
+          --color-info: #60a5fa;
+          --color-info-50: #1e3a8a;
+          --color-info-100: #1e40af;
+          --color-info-200: #1d4ed8;
+          --color-info-300: #2563eb;
+          --color-info-400: #3b82f6;
+          --color-info-500: #60a5fa;
+          --color-info-600: #93c5fd;
+          --color-info-700: #bfdbfe;
+          --color-info-800: #dbeafe;
+          --color-info-900: #eff6ff;
+          --color-info-focus: #3b82f6;
+          --color-info-content: #1f2937;
+
+          /* Success colors */
+          --color-success: #34d399;
+          --color-success-50: #064e3b;
+          --color-success-100: #065f46;
+          --color-success-200: #047857;
+          --color-success-300: #059669;
+          --color-success-400: #10b981;
+          --color-success-500: #34d399;
+          --color-success-600: #6ee7b7;
+          --color-success-700: #a7f3d0;
+          --color-success-800: #d1fae5;
+          --color-success-900: #ecfdf5;
+          --color-success-focus: #10b981;
+          --color-success-content: #1f2937;
+
+          /* Warning colors */
+          --color-warning: #fbbf24;
+          --color-warning-50: #78350f;
+          --color-warning-100: #92400e;
+          --color-warning-200: #b45309;
+          --color-warning-300: #d97706;
+          --color-warning-400: #f59e0b;
+          --color-warning-500: #fbbf24;
+          --color-warning-600: #fcd34d;
+          --color-warning-700: #fde68a;
+          --color-warning-800: #fef3c7;
+          --color-warning-900: #fffbeb;
+          --color-warning-focus: #f59e0b;
+          --color-warning-content: #1f2937;
+
+          /* Error colors */
+          --color-error: #f87171;
+          --color-error-50: #7f1d1d;
+          --color-error-100: #991b1b;
+          --color-error-200: #b91c1c;
+          --color-error-300: #dc2626;
+          --color-error-400: #ef4444;
+          --color-error-500: #f87171;
+          --color-error-600: #fca5a5;
+          --color-error-700: #fecaca;
+          --color-error-800: #fee2e2;
+          --color-error-900: #fef2f2;
+          --color-error-focus: #ef4444;
+          --color-error-content: #1f2937;
+        }
+</style>
+
+    
+  <script>
+        tailwind.config = {
+            theme: {
+              extend: {
+                colors: {
+                ...{&quot;transparent&quot;:&quot;transparent&quot;,&quot;current&quot;:&quot;currentColor&quot;,&quot;black&quot;:&quot;#000000&quot;,&quot;white&quot;:&quot;#ffffff&quot;,&quot;gray&quot;:{&quot;50&quot;:&quot;#f9fafb&quot;,&quot;100&quot;:&quot;#f3f4f6&quot;,&quot;200&quot;:&quot;#e5e7eb&quot;,&quot;300&quot;:&quot;#d1d5db&quot;,&quot;400&quot;:&quot;#9ca3af&quot;,&quot;500&quot;:&quot;#6b7280&quot;,&quot;600&quot;:&quot;#4b5563&quot;,&quot;700&quot;:&quot;#374151&quot;,&quot;800&quot;:&quot;#1f2937&quot;,&quot;900&quot;:&quot;#111827&quot;},&quot;red&quot;:{&quot;50&quot;:&quot;#fef2f2&quot;,&quot;100&quot;:&quot;#fee2e2&quot;,&quot;200&quot;:&quot;#fecaca&quot;,&quot;300&quot;:&quot;#fca5a5&quot;,&quot;400&quot;:&quot;#f87171&quot;,&quot;500&quot;:&quot;#ef4444&quot;,&quot;600&quot;:&quot;#dc2626&quot;,&quot;700&quot;:&quot;#b91c1c&quot;,&quot;800&quot;:&quot;#991b1b&quot;,&quot;900&quot;:&quot;#7f1d1d&quot;},&quot;yellow&quot;:{&quot;50&quot;:&quot;#fffbeb&quot;,&quot;100&quot;:&quot;#fef3c7&quot;,&quot;200&quot;:&quot;#fde68a&quot;,&quot;300&quot;:&quot;#fcd34d&quot;,&quot;400&quot;:&quot;#fbbf24&quot;,&quot;500&quot;:&quot;#f59e0b&quot;,&quot;600&quot;:&quot;#d97706&quot;,&quot;700&quot;:&quot;#b45309&quot;,&quot;800&quot;:&quot;#92400e&quot;,&quot;900&quot;:&quot;#78350f&quot;},&quot;green&quot;:{&quot;50&quot;:&quot;#ecfdf5&quot;,&quot;100&quot;:&quot;#d1fae5&quot;,&quot;200&quot;:&quot;#a7f3d0&quot;,&quot;300&quot;:&quot;#6ee7b7&quot;,&quot;400&quot;:&quot;#34d399&quot;,&quot;500&quot;:&quot;#10b981&quot;,&quot;600&quot;:&quot;#059669&quot;,&quot;700&quot;:&quot;#047857&quot;,&quot;800&quot;:&quot;#065f46&quot;,&quot;900&quot;:&quot;#064e3b&quot;},&quot;blue&quot;:{&quot;50&quot;:&quot;#eff6ff&quot;,&quot;100&quot;:&quot;#dbeafe&quot;,&quot;200&quot;:&quot;#bfdbfe&quot;,&quot;300&quot;:&quot;#93c5fd&quot;,&quot;400&quot;:&quot;#60a5fa&quot;,&quot;500&quot;:&quot;#3b82f6&quot;,&quot;600&quot;:&quot;#2563eb&quot;,&quot;700&quot;:&quot;#1d4ed8&quot;,&quot;800&quot;:&quot;#1e40af&quot;,&quot;900&quot;:&quot;#1e3a8a&quot;},&quot;indigo&quot;:{&quot;50&quot;:&quot;#eef2ff&quot;,&quot;100&quot;:&quot;#e0e7ff&quot;,&quot;200&quot;:&quot;#c7d2fe&quot;,&quot;300&quot;:&quot;#a5b4fc&quot;,&quot;400&quot;:&quot;#818cf8&quot;,&quot;500&quot;:&quot;#6366f1&quot;,&quot;600&quot;:&quot;#4f46e5&quot;,&quot;700&quot;:&quot;#4338ca&quot;,&quot;800&quot;:&quot;#3730a3&quot;,&quot;900&quot;:&quot;#312e81&quot;},&quot;purple&quot;:{&quot;50&quot;:&quot;#f5f3ff&quot;,&quot;100&quot;:&quot;#ede9fe&quot;,&quot;200&quot;:&quot;#ddd6fe&quot;,&quot;300&quot;:&quot;#c4b5fd&quot;,&quot;400&quot;:&quot;#a78bfa&quot;,&quot;500&quot;:&quot;#8b5cf6&quot;,&quot;600&quot;:&quot;#7c3aed&quot;,&quot;700&quot;:&quot;#6d28d9&quot;,&quot;800&quot;:&quot;#5b21b6&quot;,&quot;900&quot;:&quot;#4c1d95&quot;},&quot;pink&quot;:{&quot;50&quot;:&quot;#fdf2f8&quot;,&quot;100&quot;:&quot;#fce7f3&quot;,&quot;200&quot;:&quot;#fbcfe8&quot;,&quot;300&quot;:&quot;#f9a8d4&quot;,&quot;400&quot;:&quot;#f472b6&quot;,&quot;500&quot;:&quot;#ec4899&quot;,&quot;600&quot;:&quot;#db2777&quot;,&quot;700&quot;:&quot;#be185d&quot;,&quot;800&quot;:&quot;#9d174d&quot;,&quot;900&quot;:&quot;#831843&quot;}},
+                ...{&quot;primary&quot;:{&quot;50&quot;:&quot;var(--color-primary-50)&quot;,&quot;100&quot;:&quot;var(--color-primary-100)&quot;,&quot;200&quot;:&quot;var(--color-primary-200)&quot;,&quot;300&quot;:&quot;var(--color-primary-300)&quot;,&quot;400&quot;:&quot;var(--color-primary-400)&quot;,&quot;500&quot;:&quot;var(--color-primary-500)&quot;,&quot;600&quot;:&quot;var(--color-primary-600)&quot;,&quot;700&quot;:&quot;var(--color-primary-700)&quot;,&quot;800&quot;:&quot;var(--color-primary-800)&quot;,&quot;900&quot;:&quot;var(--color-primary-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-primary)&quot;,&quot;focus&quot;:&quot;var(--color-primary-focus)&quot;,&quot;content&quot;:&quot;var(--color-primary-content)&quot;},&quot;secondary&quot;:{&quot;50&quot;:&quot;var(--color-secondary-50)&quot;,&quot;100&quot;:&quot;var(--color-secondary-100)&quot;,&quot;200&quot;:&quot;var(--color-secondary-200)&quot;,&quot;300&quot;:&quot;var(--color-secondary-300)&quot;,&quot;400&quot;:&quot;var(--color-secondary-400)&quot;,&quot;500&quot;:&quot;var(--color-secondary-500)&quot;,&quot;600&quot;:&quot;var(--color-secondary-600)&quot;,&quot;700&quot;:&quot;var(--color-secondary-700)&quot;,&quot;800&quot;:&quot;var(--color-secondary-800)&quot;,&quot;900&quot;:&quot;var(--color-secondary-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-secondary)&quot;,&quot;focus&quot;:&quot;var(--color-secondary-focus)&quot;,&quot;content&quot;:&quot;var(--color-secondary-content)&quot;},&quot;accent&quot;:{&quot;50&quot;:&quot;var(--color-accent-50)&quot;,&quot;100&quot;:&quot;var(--color-accent-100)&quot;,&quot;200&quot;:&quot;var(--color-accent-200)&quot;,&quot;300&quot;:&quot;var(--color-accent-300)&quot;,&quot;400&quot;:&quot;var(--color-accent-400)&quot;,&quot;500&quot;:&quot;var(--color-accent-500)&quot;,&quot;600&quot;:&quot;var(--color-accent-600)&quot;,&quot;700&quot;:&quot;var(--color-accent-700)&quot;,&quot;800&quot;:&quot;var(--color-accent-800)&quot;,&quot;900&quot;:&quot;var(--color-accent-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-accent)&quot;,&quot;focus&quot;:&quot;var(--color-accent-focus)&quot;,&quot;content&quot;:&quot;var(--color-accent-content)&quot;},&quot;neutral&quot;:{&quot;50&quot;:&quot;var(--color-neutral-50)&quot;,&quot;100&quot;:&quot;var(--color-neutral-100)&quot;,&quot;200&quot;:&quot;var(--color-neutral-200)&quot;,&quot;300&quot;:&quot;var(--color-neutral-300)&quot;,&quot;400&quot;:&quot;var(--color-neutral-400)&quot;,&quot;500&quot;:&quot;var(--color-neutral-500)&quot;,&quot;600&quot;:&quot;var(--color-neutral-600)&quot;,&quot;700&quot;:&quot;var(--color-neutral-700)&quot;,&quot;800&quot;:&quot;var(--color-neutral-800)&quot;,&quot;900&quot;:&quot;var(--color-neutral-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-neutral)&quot;,&quot;focus&quot;:&quot;var(--color-neutral-focus)&quot;,&quot;content&quot;:&quot;var(--color-neutral-content)&quot;},&quot;info&quot;:{&quot;50&quot;:&quot;var(--color-info-50)&quot;,&quot;100&quot;:&quot;var(--color-info-100)&quot;,&quot;200&quot;:&quot;var(--color-info-200)&quot;,&quot;300&quot;:&quot;var(--color-info-300)&quot;,&quot;400&quot;:&quot;var(--color-info-400)&quot;,&quot;500&quot;:&quot;var(--color-info-500)&quot;,&quot;600&quot;:&quot;var(--color-info-600)&quot;,&quot;700&quot;:&quot;var(--color-info-700)&quot;,&quot;800&quot;:&quot;var(--color-info-800)&quot;,&quot;900&quot;:&quot;var(--color-info-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-info)&quot;,&quot;focus&quot;:&quot;var(--color-info-focus)&quot;,&quot;content&quot;:&quot;var(--color-info-content)&quot;},&quot;success&quot;:{&quot;50&quot;:&quot;var(--color-success-50)&quot;,&quot;100&quot;:&quot;var(--color-success-100)&quot;,&quot;200&quot;:&quot;var(--color-success-200)&quot;,&quot;300&quot;:&quot;var(--color-success-300)&quot;,&quot;400&quot;:&quot;var(--color-success-400)&quot;,&quot;500&quot;:&quot;var(--color-success-500)&quot;,&quot;600&quot;:&quot;var(--color-success-600)&quot;,&quot;700&quot;:&quot;var(--color-success-700)&quot;,&quot;800&quot;:&quot;var(--color-success-800)&quot;,&quot;900&quot;:&quot;var(--color-success-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-success)&quot;,&quot;focus&quot;:&quot;var(--color-success-focus)&quot;,&quot;content&quot;:&quot;var(--color-success-content)&quot;},&quot;warning&quot;:{&quot;50&quot;:&quot;var(--color-warning-50)&quot;,&quot;100&quot;:&quot;var(--color-warning-100)&quot;,&quot;200&quot;:&quot;var(--color-warning-200)&quot;,&quot;300&quot;:&quot;var(--color-warning-300)&quot;,&quot;400&quot;:&quot;var(--color-warning-400)&quot;,&quot;500&quot;:&quot;var(--color-warning-500)&quot;,&quot;600&quot;:&quot;var(--color-warning-600)&quot;,&quot;700&quot;:&quot;var(--color-warning-700)&quot;,&quot;800&quot;:&quot;var(--color-warning-800)&quot;,&quot;900&quot;:&quot;var(--color-warning-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-warning)&quot;,&quot;focus&quot;:&quot;var(--color-warning-focus)&quot;,&quot;content&quot;:&quot;var(--color-warning-content)&quot;},&quot;error&quot;:{&quot;50&quot;:&quot;var(--color-error-50)&quot;,&quot;100&quot;:&quot;var(--color-error-100)&quot;,&quot;200&quot;:&quot;var(--color-error-200)&quot;,&quot;300&quot;:&quot;var(--color-error-300)&quot;,&quot;400&quot;:&quot;var(--color-error-400)&quot;,&quot;500&quot;:&quot;var(--color-error-500)&quot;,&quot;600&quot;:&quot;var(--color-error-600)&quot;,&quot;700&quot;:&quot;var(--color-error-700)&quot;,&quot;800&quot;:&quot;var(--color-error-800)&quot;,&quot;900&quot;:&quot;var(--color-error-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-error)&quot;,&quot;focus&quot;:&quot;var(--color-error-focus)&quot;,&quot;content&quot;:&quot;var(--color-error-content)&quot;},&quot;danger&quot;:{&quot;50&quot;:&quot;var(--color-error-50)&quot;,&quot;100&quot;:&quot;var(--color-error-100)&quot;,&quot;200&quot;:&quot;var(--color-error-200)&quot;,&quot;300&quot;:&quot;var(--color-error-300)&quot;,&quot;400&quot;:&quot;var(--color-error-400)&quot;,&quot;500&quot;:&quot;var(--color-error-500)&quot;,&quot;600&quot;:&quot;var(--color-error-600)&quot;,&quot;700&quot;:&quot;var(--color-error-700)&quot;,&quot;800&quot;:&quot;var(--color-error-800)&quot;,&quot;900&quot;:&quot;var(--color-error-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-error)&quot;,&quot;focus&quot;:&quot;var(--color-error-focus)&quot;,&quot;content&quot;:&quot;var(--color-error-content)&quot;},&quot;failure&quot;:{&quot;50&quot;:&quot;var(--color-error-50)&quot;,&quot;100&quot;:&quot;var(--color-error-100)&quot;,&quot;200&quot;:&quot;var(--color-error-200)&quot;,&quot;300&quot;:&quot;var(--color-error-300)&quot;,&quot;400&quot;:&quot;var(--color-error-400)&quot;,&quot;500&quot;:&quot;var(--color-error-500)&quot;,&quot;600&quot;:&quot;var(--color-error-600)&quot;,&quot;700&quot;:&quot;var(--color-error-700)&quot;,&quot;800&quot;:&quot;var(--color-error-800)&quot;,&quot;900&quot;:&quot;var(--color-error-900)&quot;,&quot;DEFAULT&quot;:&quot;var(--color-error)&quot;,&quot;focus&quot;:&quot;var(--color-error-focus)&quot;,&quot;content&quot;:&quot;var(--color-error-content)&quot;}},
+                },
+              },
+            },
+            variants: {
+              extend: {
+                backgroundColor: ['active', 'group-hover'],
+                textColor: ['active', 'group-hover'],
+              },
+            },
+            plugins: [],
+          };
+  </script>
+
+</head>
+
+              <body class=&quot;h-full text-base-content&quot;>
+                <div class=&quot;min-h-screen bg-[#f8f6f1]&quot;>
+    <!-- Header -->
+    <header id=&quot;header&quot; class=&quot;fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50&quot;>
+        <div class=&quot;container mx-auto px-4&quot;>
+            <nav class=&quot;flex items-center justify-between h-20&quot;>
+                <div class=&quot;flex items-center gap-3&quot;>
+                    <i class=&quot;fa-solid fa-book-quran text-[#0C713D] text-3xl&quot;></i>
+                    <div class=&quot;text-lg&quot;>
+                        <span class=&quot;font-semibold text-[#0C713D]&quot;>Musabaqah Qira'atul Kutub</span>
+                        <span class=&quot;text-sm block text-gray-600&quot;>Pondok Pesantren Darul Falah</span>
+                    </div>
+                </div>
+                <div class=&quot;hidden lg:flex items-center gap-8&quot;>
+                    <span  class=&quot;text-[#0C713D] hover:text-[#0C713D]/80 cursor-pointer&quot;>Home</span>
+                    <a href=&quot;#about&quot; class=&quot;text-gray-600 hover:text-[#0C713D]&quot;>About</a>
+                    <a href=&quot;#schedule&quot; class=&quot;text-gray-600 hover:text-[#0C713D]&quot;>Schedule</a>
+                    <a href=&quot;#registration&quot; class=&quot;text-gray-600 hover:text-[#0C713D]&quot;>Registration</a>
+                    <a href=&quot;#prizes&quot; class=&quot;text-gray-600 hover:text-[#0C713D]&quot;>Prizes</a>
+                    <a href=&quot;#gallery&quot; class=&quot;text-gray-600 hover:text-[#0C713D]&quot;>Gallery</a>
+                    <a href=&quot;#contact&quot; class=&quot;text-gray-600 hover:text-[#0C713D]&quot;>Contact</a>
+                </div>
+                <button class=&quot;lg:hidden text-[#0C713D]&quot;>
+                    <i class=&quot;fa-solid fa-bars text-2xl&quot;></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id=&quot;hero&quot; class=&quot;pt-20 h-[800px] relative overflow-hidden&quot;>
+        <div class=&quot;absolute inset-0 z-0&quot;>
+            <img class=&quot;w-full h-full object-cover&quot; src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/263c041445-0b819336f890b05a16ca.png&quot; alt=&quot;islamic students reading classical books in a traditional pesantren setting, warm lighting, professional photography&quot; >
+            <div class=&quot;absolute inset-0 bg-black/50&quot;></div>
+        </div>
+        <div class=&quot;container mx-auto px-4 relative z-10 h-full flex items-center&quot;>
+            <div class=&quot;max-w-3xl text-white&quot;>
+                <h1 class=&quot;text-5xl font-bold mb-6&quot;>Reviving the Tradition of Islamic Scholarship Through Qira'atul Kutub</h1>
+                <p class=&quot;text-xl mb-8 text-gray-200&quot;>Join us in celebrating and preserving the rich tradition of Islamic classical text reading competition.</p>
+                <div class=&quot;flex gap-4&quot;>
+                    <a href=&quot;#registration&quot; class=&quot;bg-[#0C713D] hover:bg-[#0C713D]/90 text-white px-8 py-4 rounded-lg font-semibold&quot;>Register Now</a>
+                    <a href=&quot;#about&quot; class=&quot;border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-[#0C713D]&quot;>Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id=&quot;about&quot; class=&quot;py-20 bg-white&quot;>
+        <div class=&quot;container mx-auto px-4&quot;>
+            <div class=&quot;text-center mb-16&quot;>
+                <h2 class=&quot;text-3xl font-bold text-gray-800 mb-4&quot;>About The Event</h2>
+                <p class=&quot;text-gray-600 max-w-2xl mx-auto&quot;>Musabaqah Qira'atul Kutub is a prestigious competition that celebrates the mastery of classical Islamic texts, fostering scholarship and preserving our rich intellectual heritage.</p>
+            </div>
+
+            <div class=&quot;grid md:grid-cols-3 gap-8 mb-16&quot;>
+                <div class=&quot;bg-[#f8f6f1] rounded-xl p-8 text-center&quot;>
+                    <i class=&quot;fa-solid fa-users-between-lines text-4xl text-[#0C713D] mb-4&quot;></i>
+                    <h3 class=&quot;text-4xl font-bold text-gray-800 mb-2&quot;>150+</h3>
+                    <p class=&quot;text-gray-600&quot;>Total Contingents</p>
+                </div>
+                <div class=&quot;bg-[#f8f6f1] rounded-xl p-8 text-center&quot;>
+                    <i class=&quot;fa-solid fa-user-graduate text-4xl text-[#0C713D] mb-4&quot;></i>
+                    <h3 class=&quot;text-4xl font-bold text-gray-800 mb-2&quot;>500+</h3>
+                    <p class=&quot;text-gray-600&quot;>Total Participants</p>
+                </div>
+                <div class=&quot;bg-[#f8f6f1] rounded-xl p-8 text-center&quot;>
+                    <i class=&quot;fa-solid fa-book text-4xl text-[#0C713D] mb-4&quot;></i>
+                    <h3 class=&quot;text-4xl font-bold text-gray-800 mb-2&quot;>25+</h3>
+                    <p class=&quot;text-gray-600&quot;>Classical Books Contested</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id=&quot;schedule&quot; class=&quot;py-20 bg-[#f8f6f1]&quot;>
+        <div class=&quot;container mx-auto px-4&quot;>
+            <h2 class=&quot;text-3xl font-bold text-gray-800 mb-16 text-center&quot;>Competition Schedule</h2>
+            
+            <div class=&quot;grid md:grid-cols-2 gap-8&quot;>
+                <div class=&quot;bg-white rounded-xl p-8 shadow-sm&quot;>
+                    <h3 class=&quot;text-xl font-semibold mb-6&quot;>Competition Categories</h3>
+                    <div class=&quot;space-y-4&quot;>
+                        <div class=&quot;flex items-center gap-4 p-4 border border-gray-100 rounded-lg&quot;>
+                            <i class=&quot;fa-solid fa-star text-[#0C713D]&quot;></i>
+                            <div>
+                                <h4 class=&quot;font-semibold&quot;>Junior Category</h4>
+                                <p class=&quot;text-sm text-gray-600&quot;>Ages 12-15</p>
+                            </div>
+                        </div>
+                        <div class=&quot;flex items-center gap-4 p-4 border border-gray-100 rounded-lg&quot;>
+                            <i class=&quot;fa-solid fa-star text-[#0C713D]&quot;></i>
+                            <div>
+                                <h4 class=&quot;font-semibold&quot;>Senior Category</h4>
+                                <p class=&quot;text-sm text-gray-600&quot;>Ages 16-20</p>
+                            </div>
+                        </div>
+                        <div class=&quot;flex items-center gap-4 p-4 border border-gray-100 rounded-lg&quot;>
+                            <i class=&quot;fa-solid fa-star text-[#0C713D]&quot;></i>
+                            <div>
+                                <h4 class=&quot;font-semibold&quot;>Advanced Category</h4>
+                                <p class=&quot;text-sm text-gray-600&quot;>Ages 21+</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class=&quot;bg-white rounded-xl p-8 shadow-sm&quot;>
+                    <h3 class=&quot;text-xl font-semibold mb-6&quot;>Important Dates</h3>
+                    <div class=&quot;space-y-4&quot;>
+                        <div class=&quot;flex items-center gap-4 p-4 border border-gray-100 rounded-lg&quot;>
+                            <i class=&quot;fa-regular fa-calendar text-[#0C713D]&quot;></i>
+                            <div>
+                                <h4 class=&quot;font-semibold&quot;>Registration Opens</h4>
+                                <p class=&quot;text-sm text-gray-600&quot;>January 15, 2025</p>
+                            </div>
+                        </div>
+                        <div class=&quot;flex items-center gap-4 p-4 border border-gray-100 rounded-lg&quot;>
+                            <i class=&quot;fa-regular fa-calendar text-[#0C713D]&quot;></i>
+                            <div>
+                                <h4 class=&quot;font-semibold&quot;>Registration Closes</h4>
+                                <p class=&quot;text-sm text-gray-600&quot;>February 28, 2025</p>
+                            </div>
+                        </div>
+                        <div class=&quot;flex items-center gap-4 p-4 border border-gray-100 rounded-lg&quot;>
+                            <i class=&quot;fa-regular fa-calendar text-[#0C713D]&quot;></i>
+                            <div>
+                                <h4 class=&quot;font-semibold&quot;>Competition Days</h4>
+                                <p class=&quot;text-sm text-gray-600&quot;>March 15-20, 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prizes Section -->
+    <section id=&quot;prizes&quot; class=&quot;py-20 bg-white&quot;>
+        <div class=&quot;container mx-auto px-4&quot;>
+            <h2 class=&quot;text-3xl font-bold text-gray-800 mb-16 text-center&quot;>Prizes &amp; Benefits</h2>
+            
+            <div class=&quot;grid md:grid-cols-3 gap-8&quot;>
+                <div class=&quot;bg-[#f8f6f1] rounded-xl p-8 text-center relative overflow-hidden group hover:shadow-lg transition-all&quot;>
+                    <div class=&quot;absolute top-0 right-0 w-24 h-24 bg-[#0C713D]/10 rounded-bl-full&quot;></div>
+                    <i class=&quot;fa-solid fa-trophy text-6xl text-[#FFD700] mb-6&quot;></i>
+                    <h3 class=&quot;text-2xl font-bold mb-2&quot;>First Prize</h3>
+                    <p class=&quot;text-3xl font-bold text-[#0C713D] mb-4&quot;>Rp 15.000.000</p>
+                    <ul class=&quot;text-gray-600 space-y-2&quot;>
+                        <li>Trophy &amp; Certificate</li>
+                        <li>Study Tour to Middle East</li>
+                        <li>Complete Set of Islamic Books</li>
+                    </ul>
+                </div>
+
+                <div class=&quot;bg-[#f8f6f1] rounded-xl p-8 text-center relative overflow-hidden group hover:shadow-lg transition-all&quot;>
+                    <div class=&quot;absolute top-0 right-0 w-24 h-24 bg-[#0C713D]/10 rounded-bl-full&quot;></div>
+                    <i class=&quot;fa-solid fa-medal text-6xl text-[#C0C0C0] mb-6&quot;></i>
+                    <h3 class=&quot;text-2xl font-bold mb-2&quot;>Second Prize</h3>
+                    <p class=&quot;text-3xl font-bold text-[#0C713D] mb-4&quot;>Rp 10.000.000</p>
+                    <ul class=&quot;text-gray-600 space-y-2&quot;>
+                        <li>Trophy &amp; Certificate</li>
+                        <li>Complete Set of Islamic Books</li>
+                        <li>Educational Scholarship</li>
+                    </ul>
+                </div>
+
+                <div class=&quot;bg-[#f8f6f1] rounded-xl p-8 text-center relative overflow-hidden group hover:shadow-lg transition-all&quot;>
+                    <div class=&quot;absolute top-0 right-0 w-24 h-24 bg-[#0C713D]/10 rounded-bl-full&quot;></div>
+                    <i class=&quot;fa-solid fa-award text-6xl text-[#CD7F32] mb-6&quot;></i>
+                    <h3 class=&quot;text-2xl font-bold mb-2&quot;>Third Prize</h3>
+                    <p class=&quot;text-3xl font-bold text-[#0C713D] mb-4&quot;>Rp 7.500.000</p>
+                    <ul class=&quot;text-gray-600 space-y-2&quot;>
+                        <li>Trophy &amp; Certificate</li>
+                        <li>Selected Islamic Books</li>
+                        <li>Educational Scholarship</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id=&quot;testimonials&quot; class=&quot;py-20 bg-[#f8f6f1]&quot;>
+        <div class=&quot;container mx-auto px-4&quot;>
+            <h2 class=&quot;text-3xl font-bold text-gray-800 mb-16 text-center&quot;>What Participants Say</h2>
+            
+            <div class=&quot;grid md:grid-cols-3 gap-8&quot;>
+                <div class=&quot;bg-white p-8 rounded-xl shadow-sm&quot;>
+                    <div class=&quot;flex items-center gap-4 mb-6&quot;>
+                        <img src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg&quot; alt=&quot;Testimonial&quot; class=&quot;w-16 h-16 rounded-full&quot;>
+                        <div>
+                            <h4 class=&quot;font-semibold&quot;>Ahmad Fauzi</h4>
+                            <p class=&quot;text-sm text-gray-600&quot;>Previous Winner</p>
+                        </div>
+                    </div>
+                    <p class=&quot;text-gray-600&quot;>&quot;This competition has truly enhanced my understanding of classical Islamic texts. The experience was both challenging and rewarding.&quot;</p>
+                </div>
+
+                <div class=&quot;bg-white p-8 rounded-xl shadow-sm&quot;>
+                    <div class=&quot;flex items-center gap-4 mb-6&quot;>
+                        <img src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg&quot; alt=&quot;Testimonial&quot; class=&quot;w-16 h-16 rounded-full&quot;>
+                        <div>
+                            <h4 class=&quot;font-semibold&quot;>Fatima Zahra</h4>
+                            <p class=&quot;text-sm text-gray-600&quot;>Participant</p>
+                        </div>
+                    </div>
+                    <p class=&quot;text-gray-600&quot;>&quot;The competition provided an excellent platform to showcase our knowledge and learn from other participants. A truly enriching experience.&quot;</p>
+                </div>
+
+                <div class=&quot;bg-white p-8 rounded-xl shadow-sm&quot;>
+                    <div class=&quot;flex items-center gap-4 mb-6&quot;>
+                        <img src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg&quot; alt=&quot;Testimonial&quot; class=&quot;w-16 h-16 rounded-full&quot;>
+                        <div>
+                            <h4 class=&quot;font-semibold&quot;>Muhammad Hasan</h4>
+                            <p class=&quot;text-sm text-gray-600&quot;>Scholar</p>
+                        </div>
+                    </div>
+                    <p class=&quot;text-gray-600&quot;>&quot;It's heartening to see young scholars deeply engaged with classical texts. This competition plays a vital role in preserving our intellectual heritage.&quot;</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form -->
+    <section id=&quot;registration&quot; class=&quot;py-20 bg-white&quot;>
+        <div class=&quot;container mx-auto px-4&quot;>
+            <h2 class=&quot;text-3xl font-bold text-gray-800 mb-16 text-center&quot;>Register Now</h2>
+            
+            <div class=&quot;max-w-2xl mx-auto bg-[#f8f6f1] rounded-xl p-8&quot;>
+                <form class=&quot;space-y-6&quot;>
+                    <div class=&quot;grid md:grid-cols-2 gap-6&quot;>
+                        <div>
+                            <label class=&quot;block text-sm font-medium text-gray-700 mb-2&quot;>Full Name</label>
+                            <input type=&quot;text&quot; class=&quot;w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#0C713D] focus:border-transparent&quot;>
+                        </div>
+                        <div>
+                            <label class=&quot;block text-sm font-medium text-gray-700 mb-2&quot;>Email Address</label>
+                            <input type=&quot;email&quot; class=&quot;w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#0C713D] focus:border-transparent&quot;>
+                        </div>
+                    </div>
+
+                    <div class=&quot;grid md:grid-cols-2 gap-6&quot;>
+                        <div>
+                            <label class=&quot;block text-sm font-medium text-gray-700 mb-2&quot;>Phone Number</label>
+                            <input type=&quot;tel&quot; class=&quot;w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#0C713D] focus:border-transparent&quot;>
+                        </div>
+                        <div>
+                            <label class=&quot;block text-sm font-medium text-gray-700 mb-2&quot;>Institution</label>
+                            <input type=&quot;text&quot; class=&quot;w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#0C713D] focus:border-transparent&quot;>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class=&quot;block text-sm font-medium text-gray-700 mb-2&quot;>Competition Category</label>
+                        <select class=&quot;w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#0C713D] focus:border-transparent&quot;>
+                            <option>Select Category</option>
+                            <option>Junior Category</option>
+                            <option>Senior Category</option>
+                            <option>Advanced Category</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class=&quot;block text-sm font-medium text-gray-700 mb-2&quot;>Upload Documents</label>
+                        <div class=&quot;border-2 border-dashed border-gray-300 rounded-lg p-6 text-center&quot;>
+                            <i class=&quot;fa-solid fa-cloud-arrow-up text-3xl text-gray-400 mb-2&quot;></i>
+                            <p class=&quot;text-sm text-gray-600&quot;>Drag and drop your files here or click to browse</p>
+                        </div>
+                    </div>
+
+                    <button type=&quot;submit&quot; class=&quot;w-full bg-[#0C713D] text-white py-3 rounded-lg font-semibold hover:bg-[#0C713D]/90&quot;>Submit Registration</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id=&quot;contact&quot; class=&quot;py-20 bg-[#f8f6f1]&quot;>
+        <div class=&quot;container mx-auto px-4&quot;>
+            <h2 class=&quot;text-3xl font-bold text-gray-800 mb-16 text-center&quot;>Contact Us</h2>
+            
+            <div class=&quot;grid md:grid-cols-2 gap-8&quot;>
+                <div>
+                    <div class=&quot;bg-white rounded-xl p-8 mb-8&quot;>
+                        <h3 class=&quot;text-xl font-semibold mb-6&quot;>Get in Touch</h3>
+                        <div class=&quot;space-y-4&quot;>
+                            <div class=&quot;flex items-center gap-4&quot;>
+                                <i class=&quot;fa-solid fa-location-dot text-[#0C713D] text-xl&quot;></i>
+                                <p class=&quot;text-gray-600&quot;>Jl. Pesantren No. 123, Kota, Indonesia</p>
+                            </div>
+                            <div class=&quot;flex items-center gap-4&quot;>
+                                <i class=&quot;fa-solid fa-phone text-[#0C713D] text-xl&quot;></i>
+                                <p class=&quot;text-gray-600&quot;>+62 123 4567 890</p>
+                            </div>
+                            <div class=&quot;flex items-center gap-4&quot;>
+                                <i class=&quot;fa-solid fa-envelope text-[#0C713D] text-xl&quot;></i>
+                                <p class=&quot;text-gray-600&quot;>contact@darulfalah.ac.id</p>
+                            </div>
+                            <div class=&quot;flex items-center gap-4&quot;>
+                                <i class=&quot;fa-brands fa-whatsapp text-[#0C713D] text-xl&quot;></i>
+                                <p class=&quot;text-gray-600&quot;>+62 987 6543 210</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=&quot;flex gap-4&quot;>
+                        <a href=&quot;#&quot; class=&quot;bg-[#0C713D] text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-[#0C713D]/90&quot;>
+                            <i class=&quot;fa-brands fa-facebook-f&quot;></i>
+                        </a>
+                        <a href=&quot;#&quot; class=&quot;bg-[#0C713D] text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-[#0C713D]/90&quot;>
+                            <i class=&quot;fa-brands fa-instagram&quot;></i>
+                        </a>
+                        <a href=&quot;#&quot; class=&quot;bg-[#0C713D] text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-[#0C713D]/90&quot;>
+                            <i class=&quot;fa-brands fa-twitter&quot;></i>
+                        </a>
+                        <a href=&quot;#&quot; class=&quot;bg-[#0C713D] text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-[#0C713D]/90&quot;>
+                            <i class=&quot;fa-brands fa-youtube&quot;></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class=&quot;bg-white rounded-xl overflow-hidden h-[400px]&quot;>
+                    <iframe src=&quot;https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d3.375295414770757!3d6.5015398249493375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1445592894566&quot; width=&quot;100%&quot; height=&quot;100%&quot; frameborder=&quot;0&quot; style=&quot;border:0&quot; allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id=&quot;footer&quot; class=&quot;bg-[#0C713D] text-white py-12&quot;>
+        <div class=&quot;container mx-auto px-4&quot;>
+            <div class=&quot;grid md:grid-cols-4 gap-8 mb-8&quot;>
+                <div>
+                    <div class=&quot;flex items-center gap-3 mb-4&quot;>
+                        <i class=&quot;fa-solid fa-book-quran text-2xl&quot;></i>
+                        <span class=&quot;font-semibold&quot;>MQK 2025</span>
+                    </div>
+                    <p class=&quot;text-gray-200&quot;>Reviving the tradition of Islamic scholarship through the art of reading and understanding classical texts.</p>
+                </div>
+                <div>
+                    <h4 class=&quot;font-semibold mb-4&quot;>Quick Links</h4>
+                    <ul class=&quot;space-y-2 text-gray-200&quot;>
+                        <li><a href=&quot;#about&quot;>About</a></li>
+                        <li><a href=&quot;#schedule&quot;>Schedule</a></li>
+                        <li><a href=&quot;#registration&quot;>Registration</a></li>
+                        <li><a href=&quot;#contact&quot;>Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class=&quot;font-semibold mb-4&quot;>Resources</h4>
+                    <ul class=&quot;space-y-2 text-gray-200&quot;>
+                        <li><span class=&quot;cursor-pointer&quot;>FAQ</span></li>
+                        <li><span class=&quot;cursor-pointer&quot;>Terms &amp; Conditions</span></li>
+                        <li><span class=&quot;cursor-pointer&quot;>Privacy Policy</span></li>
+                        <li><span class=&quot;cursor-pointer&quot;>Support</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class=&quot;font-semibold mb-4&quot;>Newsletter</h4>
+                    <p class=&quot;text-gray-200 mb-4&quot;>Subscribe to get updates about the competition</p>
+                    <div class=&quot;flex&quot;>
+                        <input type=&quot;email&quot; placeholder=&quot;Your email&quot; class=&quot;px-4 py-2 rounded-l-lg w-full&quot;>
+                        <button class=&quot;bg-white text-[#0C713D] px-4 rounded-r-lg&quot;>
+                            <i class=&quot;fa-solid fa-paper-plane&quot;></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class=&quot;border-t border-white/20 pt-8 text-center text-gray-200&quot;>
+                <p>&amp;copy; 2025 Musabaqah Qira'atul Kutub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</div>
+              </body>
+            </html>
+          " frameborder="0" class="overflow-hidden" style="height: 4925px; width: 100%; overflow: hidden;"></iframe>
+    
+</body>
+</html>
